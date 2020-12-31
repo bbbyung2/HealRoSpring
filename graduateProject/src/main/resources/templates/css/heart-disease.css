@@ -1,0 +1,81 @@
+@charset "EUC-KR";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+
+
+
+#content {
+	font-size: 1.2rem;
+	font-family: 'Noto Sans KR', sans-serif;
+	background-color: white;
+	padding: 3vh 2vw 2vw 2vw;
+	border-radius: 10px;
+}
+
+#youtube {
+	float: left;
+	width: 25vw;
+	/*height: 25vh;*/
+	height: auto;
+	background-color: #e9ecef;
+	min-width: 400px;
+	min-height: 250px;
+	margin: 3vh 1.5vw 1.5vh 2vw;
+}
+
+#predNm {
+	text-align: center;
+	margin: 0 auto;
+	min-width: 400px;
+	/*min-width: 100%;*/
+	width: 25vw;
+	padding: 1vh 0;
+}
+
+#predictContainer {
+	text-align: center;
+	border: 1px solid black;
+	padding: 3vh 3vh;
+	/*width: 100%;*/
+}
+#predictContainer .predictTitle {
+	word-break: keep-all;
+}
+
+#predictContainer .btn {
+	margin-top: 3vh;
+}
+
+#FAQ {
+	background-color: white;
+	border-radius: 10px;
+}
+
+.graph-title {
+	font-size: 3em;
+	text-align: center;
+	/*min-width: 100%;*/
+	word-break: keep-all;
+}
+
+.graph {
+	width: 100%;
+}
+
+@media (max-width: 767px) {
+	#youtube {
+		width: auto;
+		min-width: 95%;
+	}
+
+	#predNm {
+		width: auto;
+		min-width: 95%;
+	}
+}
+
+@media (max-width: 374px) {
+	#youtube {
+		width: 75vw;
+		min-width: 95%;
+	}
+}

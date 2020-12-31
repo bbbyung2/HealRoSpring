@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<title>Predict Heart Disease</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+	crossorigin="anonymous">
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" type="text/css" href="./css/login.css">
+<link rel="stylesheet" type="text/css" href="./css/mypage.css">
+</head>
+
+<body>
+
+	<div class="container">
+		<div th:replace="./common/topbar :: topbar"></div>
+		<div class="jumbotron">
+
+			<header class="header">
+				<div class="header__header-column">
+					<h1 class="header__title">My Page</h1>
+				</div>
+			</header>
+			<main class="MYPAGE">
+				<header class="MyPage__header">
+					<ul class="MyPage__header-list">
+						<li class="MyPage__header-btn header-btn"><span
+							class="header-btn__icon"> <a href="/mypage_heart"
+								class="MyPage__header-link"> <i class="far fa-heart fa-2x"></i>
+							</a>
+						</span> <span class="header-btn__title"> Coronary Artery </span></li>
+						<li class="MyPage__header-btn header-btn"><span
+							class="header-btn__icon"> <a href="/mypage_diabetes"
+								class="MyPage__header-link"> <i class="fas fa-user fa-2x"></i>
+							</a>
+						</span> <span class="header-btn__title"> Diabetes </span></li>
+						<li class="MyPage__header-btn header-btn"><span
+							class="header-btn__icon"> <a href="/mypage_breast"
+								class="MyPage__header-link"> <i
+									class="far fa-lightbulb fa-2x"></i>
+							</a>
+						</span> <span class="header-btn__title"> Cardio Vascular </span></li>
+
+						<li class="MyPage__header-btn header-btn"><span
+							class="header-btn__icon"> <a href="/hospital_https"
+								class="MyPage__header-link"> <i
+									class="far fa-hospital fa-2x"></i>
+							</a>
+						</span> <span class="header-btn__title"> Hospital </span></li>
+					</ul>
+				</header>
+				
+				<div id="picture" >
+					<div class="chart">
+						<br>
+						<br>
+						<br>
+						<br> <span class="predic">predict percentage:
+							<button type="button" class="btn btn-outline-primary text-bold"
+								id="visual" th:text="${session.diabetes}" role="button"></button>
+						</span>
+						<div class="container">
+							<span><canvas id="myChart" width="500" height="400"></canvas></span>
+						</div>
+					</div>
+					<div class="visual ml-4" id ="visual">
+						<br>
+						<br>
+						<br>
+						<br>
+						<div id="ment1">
+							이전의 검사결과와 비교하여 30% 이상 악화되었습니다.<br>하단의 예방책들을 확인하여 건강 관리에
+							유의하십시오.<br>
+							<br>
+						</div>
+						<div id="ment2">
+							이전의 검사결과와 비교하여 10% 이상 악화되었습니다.<br>하단의 예방책들을 확인하여 건강 관리에
+							유의하십시오.<br>
+							<br>
+						</div>
+						<div id="ment3">
+							이전의 검사결과와 비교하여 비슷한 수준입니다.<br>하단의 예방책들을 확인하여 건강 관리를 시작해보세요.<br>
+							<br>
+						</div>
+						<div id="ment4">
+							이전의 검사결과와 비교하여 10% 이상 좋아졌습니다.<br>좋은 현상입니다. 더욱 더 신경써 다음 단계를
+							성취해보세요.<br>
+							<br>
+						</div>
+						<div id="ment5">
+							이전의 검사결과와 비교하여 30% 이상 좋아졌습니다.<br>건강관리에 있어 최고 수준입니다. 커뮤니티를 통해
+							방법을 공유하여 비법을 전수해봅시다.<br>
+							<br>
+						</div>
+						<div id="ment6">
+							비교할 검사결과들이 없습니다.<br>질병 예측 서비스를 이용하고 자신의 건강 상태를 꾸준히 관리해보세요.<br>
+							<br>
+						</div>
+						<div class="image  pl-5">
+							<img id=stage width="300" height="300"><br>
+						</div>
+					</div>
+				</div>
+				
+				<div>
+					<span class="prevent">disease prevention: </span>
+				</div>
+
+				<div id="notyet" class="ml-4">진행된 검사가 없습니다. 질병 예측 서비스를 이용해 검사를 실시해보세요.</div>
+
+				<div id="primary">
+					<p>
+						1. 적정 체중과 허리 둘레를 유지한다. 1주일에 한번씩 체중을 측정하고 지속적으로 체중과 허리 둘레를 관리한다.
+						비만한 고위험군에서 최초 체중의 5~10% 감소를 목표로 한다. 허리둘레는 남자 90cm, 여자 85cm 이하를 목표로
+						한다.<br>
+					<p></p>
+					2. 규칙적인 운동이나 신체활동을 늘린다. 운동은 최소 2일에 한번, 주일에 3일 이상 시행한다. 일주일에 150분
+					이상의 중등도 강도(땀이 적당히 나는 정도) 또는 90분 이상의 고강도 운동(숨이 차고 땀이많이 나는 정도)을 한다.
+					금기사항이 없는 경우 일주일에 최소 2회 이상 근력운동을 한다.<br>
+					<p></p>
+					3. 건강한 식단으로 골고루 제때 식사한다. 필요 칼로리의 50~60%는 탄수화물, 15~20%는 단백질, 지방섭취는
+					25% 이내로 한다. 탄수화물은 가능한 당 지수가 낮은 음식 (전곡류, 콩, 과일, 채소, 유제품 등)을 통해 섭취
+					한다. 불포화지방산이 풍부한 음식 섭취는 권장하나, 포화지방이나 트랜스지방의 섭취는 제한토록 한다.<br>
+					<p></P>
+					4. 좋은 생활습관을 가진다. 규칙적인 생활 패턴을 유지한다. 수면 시간을 성인의 겅우 하루 7~9시간, 65세 이상
+					노인의 경우는 7~8시간을 권장한다.<br>
+					<p></p>
+					5. 정기적인 검진을 통해 위험인자를 확인한다. 모든 40세 이상 성인은 국민건강보험공단에서 지원하는 무료 검진을 가까운
+					의료기관에서 받을 수 있다. 일반 건강검진에는 혈당 및 기본 지질 검사도 포함되어 있어 당뇨병과 관련이 깊은 대사증후군
+					여부도 알 수 있다.
+				</div>
+
+				<div id="secondary">
+					당뇨병이 걸릴 확률이 높게 측정되었다면, 다음과 같은 예방법들이 필요하다. 합병증을 줄이는 데 초점이 맞춰져 있으며
+					효과적인 전략을 적용하면 대식 세포 합병증의 위험을 최대 50%까지 줄일 수 있다.<br>
+					<br> 1. 혈당 제어<br>
+					<br> 2. 지질 질환의 치료<br> 트리글리세라이드 수준은
+					150mg/dL(1.7mmol/olL)미만이어야 하며 바람직한 HDL수준은 남자의
+					경우>40mg/mg/kg(1.0mm/mmol/L), 여자의 경우>50mg/mg/kg(1.3mmol/L)이상이어야 한다.
+					예방 조치를 위한 스타틴 치료는 모든 당뇨병 환자들에게 고려되어야 한다.<br>
+					<br> 3. 혈압 조절<br> 혈압을 주기적으로 측정 하여 혈압이 90~140 수준이 되도록 적정
+					수준을 유지해야 한다.<br>
+					<br> 4. 안구 검사<br> 당뇨는 여러 합병증을 동반하는데, 그 중에 안구에 발생되는 합병증이
+					많다. 따라서 주기적으로 안과에 가서 건강검진을 받아 예방하고 조기에 치료할 수 있도록 하는 것이 좋다.<br>
+					<br> 5. 건강관리<br> 생활방식 개선에 집중하여 당뇨병을 예방 및 관리 하여야 한다. 간접흡연을
+					포함한 모든 종류의 흡연 중지, 균형잡힌 식생활, 적절한 운동과 체중감량 등에 노력하 건강한 습관을 지니는 것이
+					중요하다.
+				</div>
+
+			</main>
+
+
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	<script src="./js/common.js"></script>
+	<script th:inline="javascript">
+		var recentResult = [[${session.diabetes}]];
+		var pastResult = [[${session.diabetesPast}]];
+		var recentDate = [[${session.diabetesDate}]];
+		var pastDate = [[${session.diabetesPastDate}]];
+	</script>
+	<script th:inline="javascript" src="./js/mypage_result.js"></script>
+</body>
+</html>

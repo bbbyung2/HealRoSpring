@@ -1,0 +1,30 @@
+@charset "EUC-KR";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+
+h1 {
+	text-align: center;
+}
+
+#title-list {
+	font-family: 'Jua', sans-serif;
+}
+
+.info {
+	color: grey;
+	font-size: 0.3rem;
+	text-align: center;
+}
+
+.card-deck {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.MYPAGE .MyPage__header-list {
+  display: flex;
+    padding: 0 0 0 0;
+    /*margin: 0 0 0 0;*/
+  /*justify-content: space-around;*/
+    width: 100%;
+}

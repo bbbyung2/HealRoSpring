@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Sriracha&display=swap');
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+@import url(http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+
+#subject{
+	
+	font-family: 'Jeju Myeongjo', serif;
+	font-size: 20px;
+}
+
+#predNm{
+	font-family: 'Hanna', serif;
+	font-size: 35px;
+}
+
+#FAQ{
+        padding: 5% 10% 5% 10%;
+    }
+    #FAQ .E_HeadLine{
+        text-align: center; font-size: 2.5em; font-weight: bold;
+        padding: 10px 0;
+    }
+    #FAQ .E_TextArea{
+        padding: 10px 0;
+        text-align: center;
+    }
+    #FAQ .E_QList{
+        padding: 5% 10% 5% 10%;
+    }
+    #FAQ .E_QList li{
+        list-style: none;
+        margin: 10px 0 0;
+        font-size: 1.8em;
+        color: red;
+
+    }
+    #FAQ .E_QList li{
+        text-decoration: none; color: black;
+
+    }
+    #FAQ .E_QList li span{
+        float: right;
+        margin: 0 10px 0 0;
+    }
+    .E_Question1, .E_Question2, .E_Question3, .E_Question4, .E_Question5, .E_Question6, .E_Question7, .E_Question8, .E_Question9, .E_Question10 {
+        display:block;
+        font-family: 'Hanna', serif;
+        background-color: white; color: black;
+        cursor: pointer;
+        border-bottom: 1px solid grey;
+        }
+
+    .E_Answer1, .E_Answer2, .E_Answer3, .E_Answer4, .E_Answer5, .E_Answer6, .E_Answer7, .E_Answer8, .E_Answer9, .E_Answer10 {
+        animation-name: tglAre;
+        animation-duration: 2s;
+        display:none;
+        height: auto;
+        background-color: white;
+        overflow: hidden;
+        font-size: 20px;
+        font-family: 'Jeju Myeongjo', serif;
+    }
+
+    .E_Opener1, .E_Opener2, .E_Opener3, .E_Opener4, .E_Opener5, .E_Opener6, .E_Opener7, .E_Opener8, .E_Opener9, .E_Opener10 {       display:none;
+    }
+
+
+
+    @keyframes tglA{
+        from{
+            height: 0;
+        }
+        to{
+        }
+    }
+
+
+    .E_Opener1:checked ~ .E_Answer1 {
+        display:block;
+        animation-name: tglA;
+        animation-duration: 0s;
+    }
+
+
+
+    .E_Opener2:checked ~ .E_Answer2 {
+        display:block;
+        animation-name: tglA;
+        animation-duration: 0s;
+    }
+
+    .E_Opener3:checked ~ .E_Answer3 {
+        display:block;
+        animation-name: tglA;
+        animation-duration: 0s;
+    }
+
+    .E_Opener4:checked ~ .E_Answer4 {
+        display:block;
+        animation-name: tglA;
+        animation-duration: 0s;
+    }
+
+    .E_Opener5:checked ~ .E_Answer5 {
+        display:block;
+        animation-name: tglA;
+        animation-duration: 0s;
+    }
+
+    .E_Opener6:checked ~ .E_Answer6 {
+        display:block;
+        animation-name: tglA;
+        animation-duration: 0s;
+    }
+
+    .E_Opener7:checked ~ .E_Answer7 {
+        display:block;
+        animation-name: tglA;
+        animation-duration: 0s;
+    }
+
+    .E_Opener8:checked ~ .E_Answer8 {
+        display:block;
+        animation-name: tglA;
+        animation-duration: 0s;
+    }
+
+    .E_Opener9:checked ~ .E_Answer9 {
+        display:block;
+        animation-name: tglA;
+        animation-duration: 0s;
+    }
+
+    .E_Opener10:checked ~ .E_Answer10 {
+        display:block;
+        animation-name: tglA;
+        animation-duration: 0s;
+    }
+
+    .E_SectionBox{
+        display: flex;
+        padding: 5% 10% 5% 10%;
+
+    }

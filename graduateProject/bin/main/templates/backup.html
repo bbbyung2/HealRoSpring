@@ -1,0 +1,86 @@
+
+        <!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Diabetes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="./css/login.css">
+    <link rel="stylesheet" type="text/css" href="./css/diabetes.css">
+</head>
+
+<body>
+
+<div class="container">
+    <div th:replace="./common/topbar :: topbar"></div>
+    <div class="jumbotron">
+        <h1 class="display-4">Diabetes</h1>
+        <hr>
+        <div class="row">
+            <div id="visualExplain" class="">
+                <div class="row col-4">
+                    <iframe id="youtube"
+                            src="https://www.youtube.com/embed/YUT33Lgo0jo?&amp;autoplay=1&amp;loop=1 frameborder="
+                            frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
+                <div id="predNm">
+                    <div id="predictContainer">
+						<div id="predictBtn"><h1>당뇨병 발생 확률 예측</h1></div>
+
+                        <button class="btn btn-primary btn-lg btn-block" onclick="diabetesPredict()">
+                            Predict
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="exp col-7" id="explain">
+                당뇨병은 장기간에 걸쳐 높은 혈당치가 특징인 신진대사 질환의 집단이다.<br>
+
+                당뇨병의 원인은 췌장이 충분한 인슐린을 생산하지 못하거나, 인슐린 생성에 신체의 세포가 적절하게 반응하지 못하기 때문이다. 당뇨병에는 크게 세 가지 종류가 있다.<br>
+                제1형 당뇨병은 베타세포의 손실로 췌장이 충분한 인슐린을 생산하지 못한 데서 비롯된다. 이 형태는 이전에 "인슐린 의존성 당뇨병"(IDDM) 또는 "청소년 당뇨병"이라고 불렸다.베타세포의
+                손실은 자가면역반응에 의해 발생한다. 이 자기 면역 반응의 원인은 알려지지 않았다.
+                <br>제2형 당뇨병은 세포가 인슐린에 제대로 반응하지 못하는 질환인 인슐린 저항성으로 시작된다. 병이 진행됨에 따라 인슐린의 부족도 발생할 수 있다.이 형태는 이전에 "인슐린 의존성이
+                없는 당뇨병"(NIDDM) 또는 "성인-온셋 당뇨병"이라고 불렸다. 가장 일반적인 원인은 과도한 체중과 불충분한 운동을 병행하는 것이다.
+                <br>생식 당뇨병은 세 번째 주요 형태로서, 이전에 당뇨병을 앓은 경험이 없는 임산부가 혈당 수치가 높을 때 발생한다.
+            </div>
+        </div>
+        <hr>
+        <div class="row" id="info">
+            <div class="col-5 mt-4" id="explain2">
+                <h3 class="mt-4">당뇨병 증상</h3>
+                <ul class="mt-4">
+                    <li>소변을 자주 본다.</li>
+                    <li>목이 몹시 마르다.</li>
+                    <li>밥을 먹는데도 허기짐을 느낀다.</li>
+                    <li>극심한 피로감.</li>
+                    <li>흐릿한 시력.</li>
+                    <li>회복이 더딘 상처/부스러기.</li>
+                    <li>많이 먹어도 체중이 감소 (type 1)</li>
+                    <li>손/발이 팅팅 부음, 통증 또는 저림 (type 2)</li>
+                </ul>
+            </div>
+            <div class="col-7">
+                <img src="./img/diabetes.png">
+            </div>
+        </div>
+    </div>
+</div>
+<script th:inline="javascript">
+    var userNickName = [[${session.userNickName}]];
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script src="./js/common.js"></script>
+<script src="./js/diabetes.js"></script>
+</body>
+</html>

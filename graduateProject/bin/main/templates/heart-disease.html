@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Check Health</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOgitf23Q9Ifjh"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/disease.css">
+    <link rel="stylesheet" href="./css/heart-disease.css">
+</head>
+<body>
+<div class="container">
+    <div th:replace="./common/topbar :: topbar"></div>
+    <div class="jumbotron">
+        <h1 class="display-4">Coronary artery disease</h1>
+        <input style="float: right" id="translation" type="button" value="ENG" onclick="toggleLang()">
+        <hr class="my-4">
+
+        <div id="info">
+            <iframe id="youtube" src="https://www.youtube.com/embed/flJsXOMhuK0"
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+            <p id="content">심장은 근육질로 되어 있습니다. 따라서 심장이 정상적으로 작동을 하려면 끊임없는 산소의 공급과 영양소가 풍부한 혈액의 공급이 절대적입니다. 세 갈래의 관상동맥과 심장
+                표면을 덮고 있는 혈관망은 혈액을 공급하는 역할을 합니다. 이들 관상동맥이 동맥경화가 심해져서 부분적으로 좁아지거나 막힐 경우, 심장은 산소를 함유한 혈액을 충분히 공급받지 못하게
+                됩니다. 더구나 신체적 또는 심리적 스트레스로 더 많은 산소와 영양소를 필요로 할 때 심장 근육은 제대로 역할을 하지 못하게 됩니다. 바로 이럴 때에 협심증을 일으키거나 가슴에 통증을
+                느끼게 되는 것입니다. 이런 증세를 즉시 치료하지 않으면 심근경색증 또는 돌연사(심장마비)까지도 일으킬 우려가 있습니다.
+                <br/>
+                한때는 관상동맥병을 남자의 질병이라고들 생각했었습니다. 여성은 폐경 때까지 높은 수치의 에스트로겐으로 보호되기 때문에 평균적으로 남성이 여성보다 약 10년 일찍 관상동맥병에 걸립니다.
+                폐경 후에는 여성에게 더 많이 발생합니다. 여성이 더 오래 살기 때문에 75세 이상 인구 중 더 높은 비율의 여성이 이 병을 앓습니다. 따라서 관상동맥질환은 어떤 성별이든 예방하는 것이
+                중요합니다.<br/></p>
+        </div>
+        <hr class="my-4">
+        <div id="predNm">
+            <div id="predictContainer">
+                <h3 id="diseasePredictBtn" class="predictTitle">관상 동맥 심장병 발생 확률 예측</h3>
+                <button class="btn btn-primary btn-lg" onclick="heartDiseasePredict()">
+                    Predict
+                </button>
+            </div>
+        </div>
+        <hr class="my-4">
+        <div id="E_WRAP">
+            <div id="FAQ" class="E_FAQ">
+                <div class="E_QList">
+                    <li>
+                        <label class="E_Question1" for="E_Opener1">원인들<span
+                                class="E_plus">+</span></label>
+                        <input class="E_Opener1" type="checkbox" id="E_Opener1">
+                        <div id="first-content" class="E_Answer1 mb-4">
+                            <br/>
+                            관상동맥병은 거의 언제나 관상동맥 벽에 콜레스테롤과 기타 지방 물질(일명 죽종 또는 죽상경화판)의 점진적 축적으로 인해 발생합니다. <br>
+                            이 과정을 죽상경화증이라고 하는데 심장의 동맥뿐 아니라 여러 동맥에서 발생할 수 있습니다.<br>
+                            <br/>
+                            죽상경화증이 심장으로 향하는 혈류의 비정상적인 감소의 가장 일반적인 원인이기는 하지만 다른 원인도 존재합니다.<br>
+                            때때로 관상동맥병은 관상동맥 연축에 의해 발생하기도 하는데 관상동맥 연축은 자발적으로 일어나거나 코카인과 니코틴 같은 특정 약물의 사용으로 인해 일어날 수 있습니다.
+                            <br>
+                            관상동맥은 혈류 증가가 필요한 경우(예: 운동 중)에 반응하여 확장되지 않을 수 있습니다. <br>
+                            이 병태는 심장이 필요로 하는 것보다 적은 혈류 공급을 유발할 수 있으며, 내피세포 기능장애로 지칭됩니다. <br>
+                            드문 경우지만, 선천적 결손, 전신성 홍반 루푸스(루푸스), 동맥의 염증(동맥염), 심실에서 관상동맥 중 하나 속으로 이동한 피떡, 또는 신체 손상(부상이나 방사선
+                            요법으로 인한)으로 인해 발생하기도 합니다.<br>
+                            <br/>
+                            죽종은 성장하면서 동맥 안에서 툭 불거져 동맥의 내부(내강)를 좁히고 혈류를 부분적으로 차단할 수 있습니다.<br>
+                            시간이 지나면서 죽종 안에 칼슘이 축적됩니다. <br>
+                            죽종이 관상동맥을 점점 더 많이 차단함에 따라, 산소가 풍부한 혈액이 심장 근육에 충분히 공급되지 못할 수 있습니다. <br>
+                            심장 근육이 더 많은 혈액을 요하는 과로 시에는 혈액 공급이 불충분할 가능성이 더 높습니다. <br>
+                            심장 근육에 (어떠한 원인으로든) 혈액 공급이 불충분한 경우를 심근 허혈이라고 합니다. <br>
+                            심장이 혈액을 충분히 받지 못하면 심장은 더 이상 정상적으로 수축할 수 없어 혈액을 펌프질할 수 없습니다.<br>
+                            <br/><br>
+                            죽종은 심지어 혈류를 그다지 차단하지 않는 죽종도 갑자기 파열할 수 있습니다.<br>
+                            죽종의 파열은 종종 피떡(혈전) 형성을 촉발합니다. <br>
+                            피떡은 동맥을 더욱 좁히거나 완전히 차단하여 급성 심근 허혈을 야기합니다. <br>
+                            이 급성 허혈로 인한 결과를 급성 관상동맥 증후군이라고 합니다. <br>
+                            이 증후군은 차단 장소와 차단 정도에 따라 불안정 협심증과 몇몇 유형의 심장마비를 포함합니다. <br>
+                            심장마비에서는 폐색된 동맥으로부터 혈액을 공급받는 심장 근육 부위가 죽습니다(심근경색증이라고 합니다). <br><br>
+                            때때로 급성 관상동맥 증후군은 관상동맥 연축 또는 다른 유형의 관상동맥병에 의해 발생합니다.<br>
+                        </div>
+
+                    </li>
+                    <li>
+                        <label class="E_Question2" for="E_Opener2">위험 인자<span class="E_plus">+</span></label>
+                        <input class="E_Opener2" type="checkbox" id="E_Opener2">
+                        <div id="second-content" class="E_Answer2 mb-4">
+                            <br>
+                            ㉠ 혈중 저밀도 지질단백질(LDL) 콜레스테롤의 높은 수치(이상지질혈증 참조)<br>
+                            ㉡ 혈중 지질단백질의 높은 수치<br>
+                            ㉢ 혈중 고밀도 지질단백질(HDL) 콜레스테롤의 낮은 수치<br>
+                            ㉣ 당뇨병<br>
+                            ㉤ 흡연<br>
+                            ㉥ 고혈압<br>
+                            ㉦ 비만<br>
+                            ㉧ 신체활동 부족<br>
+                            ㉨ 식사 요소<br>
+                            <br>
+                        </div>
+
+                    </li>
+                    <li>
+                        <label class="E_Question3" for="E_Opener3">예방<span
+                                class="E_plus">+</span></label>
+                        <input class="E_Opener3" type="checkbox" id="E_Opener3">
+                        <div id="third-content" class="E_Answer3 mb-4">
+                            <br/>
+                            <h4>금연</h4>
+                            <p>금연이 가장 중요합니다. 금연하는 사람들은 흡연을 계속하는 사람들에 비해 관상동맥병 발병 위험이 절반 줄어듭니다.
+                                금연 전에 얼마나 오래 흡연했는지는 중요치 않습니다. 금연은 관상동맥병 후에 또는 심장마비 후에 사망할 위험도 줄입니다. 간접 흡연을 피하는 것도 중요합니다.</p>
+                            <br>
+                            <h4>식이요법</h4>
+                            <p>건강 증진을 위해서는 지방량을 일일 열량의 25~35% 이하로 제한할 것을 권장합니다.
+                            그러나 일부 전문가는 관상동맥병 위험을 줄이려면 지방을 일일 열량의 10%로 제한해야 한다고도 주장합니다.
+                            저지방 식사는 관상동맥병의 또 다른 위험 인자인 높은 총콜레스테롤 수치 및 LDL 콜레스테롤(나쁜 콜레스테롤) 수치를 낮추는 데도 도움이 됩니다.
+                            섭취하는 지방의 종류는 지방 섭취량만큼이나 중요합니다. 따라서 오메가-3 지방(좋은 지방) 함량이 높은 연어 같은 기름기 많은 생선은 자주 섭취하고 해로운 트랜스
+                            지방은 피할 것이 권장됩니다.
+                                많은 포장식품 제품, 패스트 푸드점, 음식점들이 음식 재료에서 트랜스 지방을 빼는 추세입니다.</p>
+                            <br>
+                            <h4>신체활동</h4>
+                            <p>신체활동이 많은 사람은 관상동맥병과 고혈압에 걸릴 가능성이 적습니다. 지구력 운동(브리스크 워킹, 자전거 타기, 조깅 같은 유산소 운동)이나 근력 운동(프리 웨이트나
+                            근력 운동 기구를 이용한 저항훈련)은 관상동맥병 예방에 도움이 됩니다.
+                                날마다 30분만 걸어도 이로울 수 있습니다. 체형이 망가진 사람이나 오랫동안 운동하지 않은 사람은 운동 프로그램을 시작하기 전에 의사와 상담해야 합니다.</p>
+                            <br>
+                            <h4>체중 조절</h4>
+                            <p>식사를 수정하고 신체활동에 참여하는 것은 비만을 통제하는 데 도움이 될 수 있습니다.
+                            술은 열량이 높기 때문에 음주량을 줄이는 것도 유익할 수 있습니다. 체중을 10~20 파운드(4½~9kg)만 감량해도 관상동맥병 위험이 감소할 수 있습니다.</p>
+                            <br>
+                            <h4>콜레스테롤 수치 조절</h4>
+                            <p>높은 총콜레스테롤 및 LDL 콜레스테롤(나쁜 콜레스테롤) 수치는 운동으로도, 금연으로도, 그 뿐 아니라 지방섭취량을 줄임으로써도 낮출 수 있습니다.
+                            혈중 총콜레스테롤 및 LDL 콜레스테롤 수치를 강하시키는 약(지질강하제)을 사용할 수도 있습니다.
+                            콜레스테롤 수치 강하의 혜택은 흡연, 고혈압, 비만, 신체활동 부족 같은 다른 위험 인자를 가진 사람들에게 가장 큽니다.</p>
+                            <br>
+                            <h4>고혈압 치료</h4>
+                            <p>고혈압을 낮추면 관상동맥병 위험이 감소합니다.
+                            고혈압 치료는 생활방식 수정으로, 즉 염분 함량이 낮은 건강한 식사를 하고 필요하면 체중을 줄이고 신체활동을 늘리는 것으로 시작합니다. 약물 요법도 필요할 수
+                            있습니다.</p>
+                            <br>
+                            <h4>당뇨병 치료</h4>
+                            <p>당뇨병을 잘 통제하면 당뇨병의 일부 합병증의 위험은 감소하지만, 당뇨병 통제가 관상동맥병 발병에 끼치는 영향은 확실치 않습니다.
+                            당뇨병을 잘 통제하면 관상동맥병의 합병증의 위험도 감소될 수 있습니다.</p>
+                            <br>
+                        </div>
+
+                    </li>
+                    <li>
+                        <label class="E_Question4" for="E_Opener4">치료<span class="E_plus">+</span></label>
+                        <input class="E_Opener4" type="checkbox" id="E_Opener4">
+                        <div id="fourth-content" class="E_Answer4 mb-4">
+                            <br>
+                            <h3>경피 관상동맥 중재술</h3>
+                            <br><p>PCI(경피적 경혈관 관상동맥확장술[PTCA]이라고도 함)에서, 의사는 바늘을 허벅지의 주동맥(대퇴 동맥) 안에 삽입하거나 손목의 요골 동맥에 삽입합니다.
+                            그 다음, 기다란 유도철사를 그 바늘 속으로 통과시키고, 동맥 속을 통과하고, 대동맥 속을 통과해, 협착된 관상동맥 안으로 삽입합니다. 끝에 풍선이 달린 카테터를
+                            유도철사 위로 넣어 협착된 관상동맥 속으로 삽입합니다.
+                            풍선과 협착부가 같은 높이에 있도록 카테터를 위치시킵니다. 그 후에 풍선을 몇 초 동안 팽창시킵니다.
+                            팽창된 풍선은 동맥을 늘리고 동맥을 좁히는 죽종을 압박하여 동맥을 넓힙니다. 팽창과 수축을 몇 번 반복할 수도 있습니다. 환자의 80~90%에서는 그리하면 협착된
+                            동맥이 열립니다.
+                            <br><br>
+                            관상동맥을 열린 상태로 유지하기 위해 의사는 일반적으로 와이어나 제조된 철망으로 만들어진 관(스텐트)을 동맥에 삽입합니다.
+                            약물을 입힌 스텐트를 사용하는 경우가 약 75%입니다. 약을 입히지 않은 스텐트(일명 맨 금속 스텐트)에서 흔히 발생하는 문제인 관상동맥이 다시 막히는 현상을
+                            방지하기 위해 약이 서서히 방출됩니다.
+                            이런 약물 방출 스텐트는 관상동맥을 개방 상태로 유지시키는 데 매우 유용하지만 약물 방출 스텐트를 삽입한 사람은 맨 금속 스텐트를 삽입한 사람보다는 스텐트 안에
+                            피떡이 형성될 위험이 약간 더 높습니다.
+                            그런 피떡 위험을 줄이기 위해, 스텐트를 삽입한 사람에게는 스텐트 삽입 후 최소 1년간 아스피린과 다른 항혈소판제를 투여합니다.
+                            흔히 의사는 스텐트 삽입 전에 항혈소판제 투여를 시작합니다. 피떡으로든 다른 원인으로든 동맥이 다시 막히면 의사가 2차 PCI를 사용할 수도 있습니다.
+                            <br><br>
+                            많은 환자에서 PCI는 CABG보다 선호되는데, 이는 회복 시간이 짧고 덜 침습적인 시술이기 때문입니다.
+                            그러나 관상동맥 병변의 위치, 길이, 축적된 칼슘량 또는 기타 조건으로 인해 관상동맥 병변이 PCI에 적합하지 않을 수도 있습니다.
+                            또한 여러 부위에 협착이나 다른 병태가 있는 환자들은 PCI 후보다 CABG 후에 오래 생존할 수 있습니다. 따라서 의사는 환자가 시술에 적합한지 여부를 신중히
+                            결정합니다.</p>
+                            <br><br>
+                        </div>
+
+                    </li>
+                </div>
+				<br />
+                <div class="row">
+                    <div id="graph-name" class="col-12 graph-title">
+                        <h2>관상동맥질환 사망률</h2>
+                    </div>
+                </div>
+				<br />
+                <div class="row">
+                    <div class="col-12">
+                        <img src="./img/vascular_graph.jpg" class="graph" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script th:inline="javascript">
+    var userNickName = [[${session.userNickName}]];
+</script>
+<script>
+        function toggleLang() {
+            let element = document.getElementById('translation');
+            let diseaseInfo = document.getElementById('content');
+            let predictBtn = document.getElementById('diseasePredictBtn');
+            let allLabel = document.getElementsByTagName('label');
+            let firstContent = document.getElementById('first-content');
+            let secondContent = document.getElementById('second-content');
+            let thirdContent = document.getElementById('third-content');
+            let thirdSubTitle = thirdContent.getElementsByTagName('h4');
+            let thirdInnerContent = thirdContent.getElementsByTagName('p');
+            let fourthContent = document.getElementById('fourth-content');
+            let fourthSubTitle = fourthContent.getElementsByTagName('h3');
+            let fourthInnerContent = fourthContent.getElementsByTagName('p');
+            let graph = document.getElementById('graph-name');
+            let graphTitle = graph.getElementsByTagName('h2');
+
+            if (element.value === 'KOR') {
+                element.value = 'ENG'
+                diseaseInfo.innerText = '심장은 근육질로 되어 있습니다. 따라서 심장이 정상적으로 작동을 하려면 끊임없는 산소의 공급과 영양소가 풍부한 혈액의 공급이 절대적입니다. 세 갈래의 관상동맥과 심장 표면을 덮고 있는 혈관망은 혈액을 공급하는 역할을 합니다. 이들 관상동맥이 동맥경화가 심해져서 부분적으로 좁아지거나 막힐 경우, 심장은 산소를 함유한 혈액을 충분히 공급받지 못하게 됩니다. 더구나 신체적 또는 심리적 스트레스로 더 많은 산소와 영양소를 필요로 할 때 심장 근육은 제대로 역할을 하지 못하게 됩니다. 바로 이럴 때에 협심증을 일으키거나 가슴에 통증을 느끼게 되는 것입니다. 이런 증세를 즉시 치료하지 않으면 심근경색증 또는 돌연사(심장마비)까지도 일으킬 우려가 있습니다.\n' +
+                        '한때는 관상동맥병을 남자의 질병이라고들 생각했었습니다. 여성은 폐경 때까지 높은 수치의 에스트로겐으로 보호되기 때문에 평균적으로 남성이 여성보다 약 10년 일찍 관상동맥병에 걸립니다. 폐경 후에는 여성에게 더 많이 발생합니다. 여성이 더 오래 살기 때문에 75세 이상 인구 중 더 높은 비율의 여성이 이 병을 앓습니다. 따라서 관상동맥질환은 어떤 성별이든 예방하는 것이 중요합니다.';
+                predictBtn.innerText = '관상 동맥 심장병 발생 확률 예측';
+                allLabel[0].innerText = '원인들';
+                allLabel[1].innerText = '위험 인자';
+                allLabel[2].innerText = '예방';
+                allLabel[3].innerText = '치료';
+                firstContent.innerText = '관상동맥병은 거의 언제나 관상동맥 벽에 콜레스테롤과 기타 지방 물질(일명 죽종 또는 죽상경화판)의 점진적 축적으로 인해 발생합니다.\n' +
+                        '이 과정을 죽상경화증이라고 하는데 심장의 동맥뿐 아니라 여러 동맥에서 발생할 수 있습니다.\n' +
+                        '\n' +
+                        '죽상경화증이 심장으로 향하는 혈류의 비정상적인 감소의 가장 일반적인 원인이기는 하지만 다른 원인도 존재합니다.\n' +
+                        '때때로 관상동맥병은 관상동맥 연축에 의해 발생하기도 하는데 관상동맥 연축은 자발적으로 일어나거나 코카인과 니코틴 같은 특정 약물의 사용으로 인해 일어날 수 있습니다.\n' +
+                        '관상동맥은 혈류 증가가 필요한 경우(예: 운동 중)에 반응하여 확장되지 않을 수 있습니다.\n' +
+                        '이 병태는 심장이 필요로 하는 것보다 적은 혈류 공급을 유발할 수 있으며, 내피세포 기능장애로 지칭됩니다.\n' +
+                        '드문 경우지만, 선천적 결손, 전신성 홍반 루푸스(루푸스), 동맥의 염증(동맥염), 심실에서 관상동맥 중 하나 속으로 이동한 피떡, 또는 신체 손상(부상이나 방사선 요법으로 인한)으로 인해 발생하기도 합니다.\n' +
+                        '\n' +
+                        '죽종은 성장하면서 동맥 안에서 툭 불거져 동맥의 내부(내강)를 좁히고 혈류를 부분적으로 차단할 수 있습니다.\n' +
+                        '시간이 지나면서 죽종 안에 칼슘이 축적됩니다.\n' +
+                        '죽종이 관상동맥을 점점 더 많이 차단함에 따라, 산소가 풍부한 혈액이 심장 근육에 충분히 공급되지 못할 수 있습니다.\n' +
+                        '심장 근육이 더 많은 혈액을 요하는 과로 시에는 혈액 공급이 불충분할 가능성이 더 높습니다.\n' +
+                        '심장 근육에 (어떠한 원인으로든) 혈액 공급이 불충분한 경우를 심근 허혈이라고 합니다.\n' +
+                        '심장이 혈액을 충분히 받지 못하면 심장은 더 이상 정상적으로 수축할 수 없어 혈액을 펌프질할 수 없습니다.\n' +
+                        '\n' +
+                        '\n' +
+                        '죽종은 심지어 혈류를 그다지 차단하지 않는 죽종도 갑자기 파열할 수 있습니다.\n' +
+                        '죽종의 파열은 종종 피떡(혈전) 형성을 촉발합니다.\n' +
+                        '피떡은 동맥을 더욱 좁히거나 완전히 차단하여 급성 심근 허혈을 야기합니다.\n' +
+                        '이 급성 허혈로 인한 결과를 급성 관상동맥 증후군이라고 합니다.\n' +
+                        '이 증후군은 차단 장소와 차단 정도에 따라 불안정 협심증과 몇몇 유형의 심장마비를 포함합니다.\n' +
+                        '심장마비에서는 폐색된 동맥으로부터 혈액을 공급받는 심장 근육 부위가 죽습니다(심근경색증이라고 합니다).\n' +
+                        '\n' +
+                        '때때로 급성 관상동맥 증후군은 관상동맥 연축 또는 다른 유형의 관상동맥병에 의해 발생합니다.';
+                secondContent.innerText = '㉠ 혈중 저밀도 지질단백질(LDL) 콜레스테롤의 높은 수치(이상지질혈증 참조)\n' +
+                        '㉡ 혈중 지질단백질의 높은 수치\n' +
+                        '㉢ 혈중 고밀도 지질단백질(HDL) 콜레스테롤의 낮은 수치\n' +
+                        '㉣ 당뇨병\n' +
+                        '㉤ 흡연\n' +
+                        '㉥ 고혈압\n' +
+                        '㉦ 비만\n' +
+                        '㉧ 신체활동 부족\n' +
+                        '㉨ 식사 요소';
+                thirdSubTitle[0].innerText = '금연';
+                thirdInnerContent[0].innerText = '금연이 가장 중요합니다. 금연하는 사람들은 흡연을 계속하는 사람들에 비해 관상동맥병 발병 위험이 절반 줄어듭니다. 금연 전에 얼마나 오래 흡연했는지는 중요치 않습니다. 금연은 관상동맥병 후에 또는 심장마비 후에 사망할 위험도 줄입니다. 간접 흡연을 피하는 것도 중요합니다.'
+                thirdSubTitle[1].innerText = '식이요법';
+                thirdInnerContent[1].innerText = '건강 증진을 위해서는 지방량을 일일 열량의 25~35% 이하로 제한할 것을 권장합니다. 그러나 일부 전문가는 관상동맥병 위험을 줄이려면 지방을 일일 열량의 10%로 제한해야 한다고도 주장합니다. 저지방 식사는 관상동맥병의 또 다른 위험 인자인 높은 총콜레스테롤 수치 및 LDL 콜레스테롤(나쁜 콜레스테롤) 수치를 낮추는 데도 도움이 됩니다. 섭취하는 지방의 종류는 지방 섭취량만큼이나 중요합니다. 따라서 오메가-3 지방(좋은 지방) 함량이 높은 연어 같은 기름기 많은 생선은 자주 섭취하고 해로운 트랜스 지방은 피할 것이 권장됩니다. 많은 포장식품 제품, 패스트 푸드점, 음식점들이 음식 재료에서 트랜스 지방을 빼는 추세입니다.';
+                thirdSubTitle[2].innerText = '신체활동';
+                thirdInnerContent[2].innerText = '신체활동이 많은 사람은 관상동맥병과 고혈압에 걸릴 가능성이 적습니다. 지구력 운동(브리스크 워킹, 자전거 타기, 조깅 같은 유산소 운동)이나 근력 운동(프리 웨이트나 근력 운동 기구를 이용한 저항훈련)은 관상동맥병 예방에 도움이 됩니다. 날마다 30분만 걸어도 이로울 수 있습니다. 체형이 망가진 사람이나 오랫동안 운동하지 않은 사람은 운동 프로그램을 시작하기 전에 의사와 상담해야 합니다.'
+                thirdSubTitle[3].innerText = '체중 조절';
+                thirdInnerContent[3].innerText = '식사를 수정하고 신체활동에 참여하는 것은 비만을 통제하는 데 도움이 될 수 있습니다. 술은 열량이 높기 때문에 음주량을 줄이는 것도 유익할 수 있습니다. 체중을 10~20 파운드(4½~9kg)만 감량해도 관상동맥병 위험이 감소할 수 있습니다.'
+                thirdSubTitle[4].innerText = '콜레스테롤 수치 조절';
+                thirdInnerContent[4].innerText = '높은 총콜레스테롤 및 LDL 콜레스테롤(나쁜 콜레스테롤) 수치는 운동으로도, 금연으로도, 그 뿐 아니라 지방섭취량을 줄임으로써도 낮출 수 있습니다. 혈중 총콜레스테롤 및 LDL 콜레스테롤 수치를 강하시키는 약(지질강하제)을 사용할 수도 있습니다. 콜레스테롤 수치 강하의 혜택은 흡연, 고혈압, 비만, 신체활동 부족 같은 다른 위험 인자를 가진 사람들에게 가장 큽니다.'
+                thirdSubTitle[5].innerText = '고혈압 치료';
+                thirdInnerContent[5].innerText = '고혈압을 낮추면 관상동맥병 위험이 감소합니다. 고혈압 치료는 생활방식 수정으로, 즉 염분 함량이 낮은 건강한 식사를 하고 필요하면 체중을 줄이고 신체활동을 늘리는 것으로 시작합니다. 약물 요법도 필요할 수 있습니다.'
+                thirdSubTitle[6].innerText = '당뇨병 치료';
+                thirdInnerContent[6].innerText = '당뇨병을 잘 통제하면 당뇨병의 일부 합병증의 위험은 감소하지만, 당뇨병 통제가 관상동맥병 발병에 끼치는 영향은 확실치 않습니다. 당뇨병을 잘 통제하면 관상동맥병의 합병증의 위험도 감소될 수 있습니다.'
+                fourthSubTitle[0].innerText = '경피 관상동맥 중재술';
+                fourthInnerContent[0].innerText = 'PCI(경피적 경혈관 관상동맥확장술[PTCA]이라고도 함)에서, 의사는 바늘을 허벅지의 주동맥(대퇴 동맥) 안에 삽입하거나 손목의 요골 동맥에 삽입합니다. 그 다음, 기다란 유도철사를 그 바늘 속으로 통과시키고, 동맥 속을 통과하고, 대동맥 속을 통과해, 협착된 관상동맥 안으로 삽입합니다. 끝에 풍선이 달린 카테터를 유도철사 위로 넣어 협착된 관상동맥 속으로 삽입합니다. 풍선과 협착부가 같은 높이에 있도록 카테터를 위치시킵니다. 그 후에 풍선을 몇 초 동안 팽창시킵니다. 팽창된 풍선은 동맥을 늘리고 동맥을 좁히는 죽종을 압박하여 동맥을 넓힙니다. 팽창과 수축을 몇 번 반복할 수도 있습니다. 환자의 80~90%에서는 그리하면 협착된 동맥이 열립니다.\n' +
+                        '\n' +
+                        '관상동맥을 열린 상태로 유지하기 위해 의사는 일반적으로 와이어나 제조된 철망으로 만들어진 관(스텐트)을 동맥에 삽입합니다. 약물을 입힌 스텐트를 사용하는 경우가 약 75%입니다. 약을 입히지 않은 스텐트(일명 맨 금속 스텐트)에서 흔히 발생하는 문제인 관상동맥이 다시 막히는 현상을 방지하기 위해 약이 서서히 방출됩니다. 이런 약물 방출 스텐트는 관상동맥을 개방 상태로 유지시키는 데 매우 유용하지만 약물 방출 스텐트를 삽입한 사람은 맨 금속 스텐트를 삽입한 사람보다는 스텐트 안에 피떡이 형성될 위험이 약간 더 높습니다. 그런 피떡 위험을 줄이기 위해, 스텐트를 삽입한 사람에게는 스텐트 삽입 후 최소 1년간 아스피린과 다른 항혈소판제를 투여합니다. 흔히 의사는 스텐트 삽입 전에 항혈소판제 투여를 시작합니다. 피떡으로든 다른 원인으로든 동맥이 다시 막히면 의사가 2차 PCI를 사용할 수도 있습니다.\n' +
+                        '\n' +
+                        '많은 환자에서 PCI는 CABG보다 선호되는데, 이는 회복 시간이 짧고 덜 침습적인 시술이기 때문입니다. 그러나 관상동맥 병변의 위치, 길이, 축적된 칼슘량 또는 기타 조건으로 인해 관상동맥 병변이 PCI에 적합하지 않을 수도 있습니다. 또한 여러 부위에 협착이나 다른 병태가 있는 환자들은 PCI 후보다 CABG 후에 오래 생존할 수 있습니다. 따라서 의사는 환자가 시술에 적합한지 여부를 신중히 결정합니다.';
+                graphTitle[0].innerText = '관상동맥질환 사망률';
+            } else if (element.value === 'ENG') {
+                element.value = 'KOR';
+                diseaseInfo.innerText = 'The heart is muscular. Therefore, for the heart to function normally, a constant supply of oxygen and a supply of nutrient-rich blood is absolutely essential. The three-pronged coronary arteries and the vascular network that covers the heart\'s surface serve to supply blood. When these coronary arteries become partially narrowed or blocked due to severe atherosclerosis, the heart does not get enough blood containing oxygen. What\'s more, when physical or psychological stress requires more oxygen and nutrients, the heart muscle fails to function properly. That\'s when it comes to angina pectoris or chest pain. If these symptoms are not treated immediately, there is a risk of myocardial infarction or even sudden death (heart attack).\n' +
+                        'At one time, people thought that coronary artery disease was a man\'s disease.\n' +
+                        'Because women are protected with high levels of estrogen until menopause, on average men develop coronary artery disease about 10 years earlier than women. It occurs more in women after menopause. Because women live longer, a higher percentage of women over the age of 75 get the disease. Therefore, it is important to prevent coronary artery disease of any sex.'
+                predictBtn.innerText = 'Predict Coronary artery disease incidence';
+                allLabel[0].innerText = 'Causes';
+                allLabel[1].innerText = 'Risk factor';
+                allLabel[2].innerText = 'Prevention';
+                allLabel[3].innerText = 'Medical treatment';
+                firstContent.innerText = 'Coronary artery disease is almost always caused by the gradual accumulation of cholesterol and other fatty substances (called atheromas or atherosclerotic plaques) on the walls of the coronary arteries.\n' +
+                        'This process, called atherosclerosis, can occur in many arteries as well as in the arteries of the heart.\n' +
+                        'Although atherosclerosis is the most common cause of abnormal decreases in blood flow to the heart, other causes exist as well.\n\n' +
+                        'Sometimes coronary artery disease is caused by coronary artery spasm, which can occur spontaneously or due to the use of certain drugs such as cocaine and nicotine.\n' +
+                        'The coronary arteries may not expand in response to increased blood flow needs (for example, during exercise).\n' +
+                        '\n' +
+                        'This condition can cause less blood flow than the heart needs, and is referred to as endothelial cell dysfunction.\n' +
+                        'In rare cases, it can be caused by a birth defect, systemic lupus erythematosus (lupus), inflammation of an artery (arteritis), a blood clot that has moved from the ventricle into one of the coronary arteries, or an injury to the body (due to injury or radiation therapy).\n\n' +
+                        'As the atheroma grows, it can bulge inside the artery, narrowing the interior (lumen) of the artery and partially blocking blood flow.\n' +
+                        'Calcium accumulates in the atheroma over time.\n' +
+                        'As the atherosclerosis blocks the coronary arteries more and more, oxygen-rich blood may not supply enough to the heart muscle.\n' +
+                        'During overwork, where the heart muscle requires more blood, you are more likely to have insufficient blood supply.\n' +
+                        'Insufficient blood supply to the heart muscle (for any reason) is called myocardial ischemia.\n' +
+                        'When the heart does not receive enough blood, the heart can no longer contract normally and cannot pump blood.\n\n' +
+                        'Atheromas can rupture suddenly, even those that do not block blood flow very much.\n' +
+                        'Atheroma rupture often triggers the formation of blood clots (blood clots).\n' +
+                        'The clot further narrows or completely blocks the artery, causing acute myocardial ischemia.\n' +
+                        'The consequences of this acute ischemia are called acute coronary syndrome.\n' +
+                        'This syndrome includes unstable angina and several types of heart attacks, depending on where and how much of the blockade.\n' +
+                        'In a heart attack, the area of ​​the heart muscle that receives blood from the blocked artery dies (called myocardial infarction).\n' +
+                        '\n' +
+                        'Sometimes acute coronary syndrome is caused by coronary artery spasms or other types of coronary artery disease.'
+            }
+            secondContent.innerText = 'A. high levels of low-density lipoprotein (LDL) cholesterol in the blood (see dyslipidemia)\n' +
+                    'B. high levels of lipoprotein in blood\n' +
+                    'C. Low levels of high-density lipoprotein (HDL) cholesterol in the blood\n' +
+                    'D. diabetes\n' +
+                    'E. smoking\n' +
+                    'F. high blood pressure\n' +
+                    'G. obesity\n' +
+                    'H. lack of physical activity\n' +
+                    'I. meal elements'
+            thirdSubTitle[0].innerText = 'no smoking';
+            thirdInnerContent[0].innerText = 'Quitting smoking is the most important. People who quit smoking have a half the risk of developing coronary artery disease compared to people who continue smoking. It doesn\'t matter how long you smoked before quitting. Quitting smoking also reduces the risk of dying after coronary artery disease or after a heart attack. It is also important to avoid second-hand smoke.'
+            thirdSubTitle[1].innerText = 'Diet';
+            thirdInnerContent[1].innerText = 'To promote health, it is recommended to limit the amount of fat to 25% to 35% or less of your daily calories. However, some experts also argue that to reduce your risk of coronary artery disease, fat should be limited to 10% of your daily calories. A low-fat diet also helps lower levels of high total cholesterol and LDL cholesterol (bad cholesterol), which are other risk factors for coronary artery disease. The type of fat you eat is just as important as how much fat you eat. Therefore, it is recommended to eat greasy fish such as salmon, which are high in omega-3 fats (good fats) frequently, and avoid harmful trans fats. Many packaged food products, fast food restaurants, and restaurants are trending to remove trans fats from food ingredients.';
+            thirdSubTitle[2].innerText = 'Physical activity';
+            thirdInnerContent[2].innerText = 'People who are physically active are less likely to develop coronary artery disease and high blood pressure. Endurance exercise (aerobic exercise such as brisk walking, biking, jogging) or strength exercise (resistance training with free weights or strength training equipment) can help prevent coronary artery disease. Just 30 minutes of walking each day can be beneficial. People with a disfigured body shape or who have not exercised for a long time should consult a doctor before starting an exercise program.'
+            thirdSubTitle[3].innerText = 'Weight control';
+            thirdInnerContent[3].innerText = 'Modifying your diet and participating in physical activity can help control obesity. Alcohol is high in calories, so reducing the amount you drink can also be beneficial. Losing just 10 to 20 pounds (4½ to 9 kg) of body weight can reduce your risk of coronary artery disease.'
+            thirdSubTitle[4].innerText = 'Control cholesterol levels';
+            thirdInnerContent[4].innerText = 'High total cholesterol and LDL cholesterol (bad cholesterol) levels can be lowered with exercise, smoking cessation, as well as reducing fat intake. Drugs that lower total cholesterol and LDL cholesterol levels in the blood (lipid-lowering drugs) may also be used. The benefits of lowering cholesterol are greatest for people with other risk factors, such as smoking, high blood pressure, obesity, and lack of physical activity.'
+            thirdSubTitle[5].innerText = 'Hypertension treatment';
+            thirdInnerContent[5].innerText = '\n' +
+                    'Lowering high blood pressure reduces the risk of coronary artery disease. Treatment for high blood pressure begins with a lifestyle modification: eating a healthy low-salt diet, losing weight and increasing physical activity if necessary. Drug therapy may also be required.'
+            thirdSubTitle[6].innerText = 'Diabetes treatment';
+            thirdInnerContent[6].innerText = 'Good control of diabetes reduces the risk of some complications of diabetes, but the impact of diabetes control on the development of coronary artery disease is uncertain. Good control of diabetes can reduce the risk of complications from coronary artery disease.'
+            fourthSubTitle[0].innerText = 'Percutaneous coronary intervention';
+            fourthInnerContent[0].innerText =
+                    'In PCI (also known as percutaneous transvascular coronary angioplasty [PTCA]), doctors insert a needle into the main artery (femoral artery) of the thigh or into the radial artery of the wrist. Then, a long guide wire is passed through the needle, through the artery, through the aorta, and inserted into the constricted coronary artery. A catheter with a balloon at the end is inserted over the guide wire and inserted into the constricted coronary artery. Position the catheter so that the balloon and constriction are at the same level. After that, inflate the balloon for a few seconds. The inflated balloon widens the artery by compressing the atheroma, which stretches and narrows the artery. Inflation and contraction may be repeated several times. In 80 to 90% of patients, this will open the narrowed artery.\n\n' +
+                    'To keep the coronary artery open, doctors usually insert a tube (stent) made of wire or manufactured wire mesh into the artery. About 75% of people use drug-coated stents. Drugs are released slowly to prevent re-blocking of the coronary arteries, a common problem with unapplied stents (called bare metal stents). These drug-releasing stents are very useful for keeping the coronary artery open, but people with drug-releasing stents have a slightly higher risk of forming a blood clot within the stent than people with bare metal stents. To reduce the risk of such clots, people with stents are given aspirin and other antiplatelet drugs for at least one year after stent placement. Often, doctors start giving antiplatelet drugs before stent placement. If the artery is blocked again, either by a blood clot or by another cause, your doctor may use a second PCI.\n\n' +
+                    'In many patients, PCI is preferred over CABG because it has a shorter recovery time and is a less invasive procedure. However, due to the location, length, amount of calcium accumulated, or other conditions of the coronary artery lesion, a coronary artery lesion may not be suitable for PCI. Also, patients with multiple sites of stenosis or other conditions may survive longer after CABG than after PCI. Therefore, the doctor carefully decides whether the patient is suitable for the procedure.';
+            graphTitle[0].innerText = 'Coronary Artery Disease Mortality Rate';
+        }
+    </script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script src="./js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Health</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOgitf23Q9Ifjh"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/vascular-disease.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div th:replace="./common/topbar :: topbar"></div>
+    <div class="jumbotron">
+        <h1 class="display-4">Cardiovascular disease</h1>
+        <input style="float: right" id="translation" type="button" value="ENG" onclick="toggleLang()">
+        <hr class="my-4">
+        <div id="info">
+            <iframe id="youtube" src="https://www.youtube.com/embed/fTxmkH9crGI" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+            <p id="content">심혈관질환은 뇌와 심장에 혈액을 공급하는 혈관에 이상이 생긴 질환을 포함하며, 협심증, 심근경색(심장마비), 뇌경색(허혈성 뇌졸중) 등이 심혈관질환에 해당됩니다 .
+                심혈관 통증은 가슴 통증, 식은땀, 지속성 등으로 알 수 있습니다. 최근 몇 주간 통증이 지속된다면 반드시 병원을 방문해야 합니다.
+                <br/>
+                콜레스테롤은 음식으로 30%, 간에서 70% 생성됩니다. 이는 LDL과 HDL로 나뉩니다. 나쁜 콜레스테롤 LDL은 혈관에 누적되어 염증 반응을 일으키고 동맥경화의 원인이 되는 반면,
+                좋은 콜레스테롤 HDL은 혈관 청소부라 불리며 혈관 속 나쁜 물질을 간으로 이동시켜줍니다. 따라서 LDL 콜레스테롤 수치가 높으면 심혈관 질환에 걸릴 확률이 높아집니다.
+                <br/>
+                심혈관 질환의 또 다른 원인에는 흡연, 당뇨, 가족력 등이 있습니다. 이는 공통적으로 동맥 경화를 일으킬 가능성이 있는데, 동맥 경화가 50%~70% 진행되면 심근경색이 발생하기
+                쉽습니다. 이 동맥경화에 파열이 생기면 혈관으로 기름때가 쏟아져 나오고, 세포들과 엉겨 붙으며 혈전이 생기게 되는데, 이 때문에 혈관이 막히게 되는 것입니다.
+        </div>
+        <hr class="my-4">
+        <div id="predNm">
+            <div id="predictContainer">
+                <h3 id="diseasePredictBtn" class="predictTitle">심혈관 질환 발생 확률 예측</h3>
+                <button class="btn btn-primary btn-lg" onclick="heartDiseasePredict2()">
+                    Predict
+                </button>
+            </div>
+        </div>
+        <hr>
+
+        <div>
+            <img id="graph" src="img/cardiovascular_graph.jpg" alt="">
+        </div>
+
+        <hr>
+        <div class="tabs col-12">
+            <input type="radio" name="tabs" id="first" checked="checked">
+            <label for="first">협심증</label>
+            <div id="first-tab" class="tab">
+                <h1>협심증이란?</h1>
+                <p>협심증이란 심장을 감싸고 있는 관상동맥이 막히거나 좁아졌을 때 심장근육에 충분한 혈액 공급이 이루어지지 않아 생기는 가슴 주변의 통증을 말합니다.</p>
+                <br/>
+                <h3>증상</h3>
+                <p>협심증은 마치 가슴이 좁아진 듯 조이고 뻐근한 통증이 발생하기 때문에 붙여진 이름입니다. 협심증의 증상은 소화불량처럼 느껴질 수도 있으며 통증이 어깨나 팔, 등, 목, 턱에서 느껴질
+                    수도 있습니다.</p>
+                <br/>
+                <h3>주요원인</h3>
+                <p>협심증은 가장 흔한 심장질환인 관상동맥질환의 주요증상이기도 합니다. 관상동맥질환은 심장에 혈액을 공급하는 관상동맥에 플라크라고 불리는 끈적끈적한 물질이 침착하여
+                    심장으로의 혈액 공급이 감소하면서 발생합니다.</p>
+                <br/>
+                <h3>협심증이 의심된다면?</h3>
+                <p>흉부 불편감이 반드시 협심증과 관련 있는 것은 아니며, 위 - 식도 역류에 의한 가슴 쓰림, 폐의 감염 및 염증에 의해서도 흉부 통증을 느낄 수 있습니다. 그러나 협십증은 갑작스러운
+                    심장 발작이나 급사의 징후일 가능성이 있습니다. 따라서 협심증이 의심되는 흉부 통증이나 불편감이 있다면 반드시 의사의 진찰을 받아야 합니다.</p>
+            </div>
+
+            <input type="radio" name="tabs" id="second">
+            <label for="second">급성심근경색</label>
+            <div id="second-tab" class="tab">
+                <h1>급성심근경색이란?</h1>
+                <p>급성심근경색이란 심장근육에 혈액을 공급하는 관상동맥이 여러 원인에 의해 갑자기 막히면서 심근에 괴사가 일어나는 질환입니다.</p>
+                <br/>
+                <h3>증상</h3>
+                <p>가장 흔한 증상은 흉통입니다.</p>
+                <ul>
+                    <li>앞가슴 중앙에 아주 심한 통증</li>
+                    <li>목이나 턱, 어깨, 좌측 팔의 안쪽 등으로 퍼지는 통증 (방사통)</li>
+                    <li>식은땀과 호흡곤란, 의식의 혼돈을 동반</li>
+                </ul>
+                <br/>
+                <h3>주요원인</h3>
+                <p>급성심근경색증의 근본적인 원인은 동맥경화증입니다. 동맥경화증은 동맥 내막에 플라크가 쌓여, 혈관이 좁아지고 탄력을 잃는 질환입니다.</p>
+            </div>
+
+            <input type="radio" name="tabs" id="third">
+            <label for="third">뇌졸중</label>
+            <div id="third-tab" class="tab">
+                <h1>뇌졸중이란?</h1>
+                <p>뇌졸중은 뇌에 혈액을 공급하는 혈관이 막히거나 터져서 뇌에 손상이 오는 질환입니다.</p>
+                <br/>
+                <h3>종류</h3>
+                <ul>
+                    <li>허혈성 뇌졸중 : 뇌혈관이 막혀서 발생</li>
+                    <li>출혈성 뇌졸중 : 뇌로 가는 혈관이 터지면서 출혈 발생</li>
+                    <li>일과성 허혈 발작 : 잠깐 동안 혈류 공급이 중단되어 발생한다. 작은 뇌졸중이라고도 불림</li>
+                </ul>
+                <br/>
+                <h3>증상</h3>
+                <p>뇌의 영역마다 혈액을 공급하는 혈관이 구분되어 있으며, 각자 담당하는 기능이 다릅니다. 따라서 어느 혈관이 문제를 일으켰는지, 손상된 뇌의 위치와 범위가 어떠한지에 따라 다양한
+                    증상이 나타납니다. 대표적인 증상은 다음과 같습니다.</p>
+                <ul>
+                    <li>반신불수</li>
+                    <li>발음장애</li>
+                    <li>복시</li>
+                    <li>감각이상 및 감각소실</li>
+                    <li>안면 신경마비</li>
+                    <li>연하곤란 (삼킴장애)</li>
+                    <li>두통 및 구토</li>
+                    <li>운동실조증</li>
+                </ul>
+                <br/>
+                <h3>뇌졸중 대처요령</h3>
+                <p>뇌졸중을 판단하고 응급처치를 할 때 미국뇌졸중협회에서 권고하고 있는 FAST를 기억하세요.</p>
+                <ul>
+                    <li>F (Face) : 웃어보세요!</li>
+                    <p>만약 얼굴의 한쪽이 일그러지거나 쳐진다면 뇌졸중을 의심해야 합니다.</p>
+                    <li>A (Arms) : 두 팔을 머리 위로 들어보세요!</li>
+                    <p>한쪽 팔을 떨어뜨린다면 뇌줄중일수도 있습니다.</p>
+                    <li>S (Speech) : 말을 해보세요!</li>
+                    <p>같은 말을 반복하는 것을 어려워하거나 말끝을 흐린다면 뇌졸중을 의심해볼 수 있습니다.</p>
+                    <li>T (Time) : 시간은 생명!</li>
+                    <p>위의 증상을 보이면 즉시 응급구조를 요청하고, 가능한 빨리 의료진의 도움을 받아야 합니다.</p>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script th:inline="javascript">
+        var userNickName = [[${session.userNickName}]];
+    </script>
+    <script>
+        function toggleLang() {
+            let element = document.getElementById('translation');
+            let diseaseInfo = document.getElementById('content');
+            let predictBtn = document.getElementById('diseasePredictBtn');
+            let allLabel = document.getElementsByTagName('label');
+            let firstTab = document.getElementById('first-tab');
+            let firstWhatIs = firstTab.getElementsByTagName('h1');
+            let firstSubTitle = firstTab.getElementsByTagName('h3');
+            let firstContent = firstTab.getElementsByTagName('p');
+            let secondTab = document.getElementById('second-tab');
+            let secondList = secondTab.getElementsByTagName('li');
+            let secondWhatis = secondTab.getElementsByTagName('h1');
+            let secondSubTitle = secondTab.getElementsByTagName('h3');
+            let secondContent = secondTab.getElementsByTagName('p');
+            let thirdTab = document.getElementById('third-tab');
+            let thirdWhatIs = thirdTab.getElementsByTagName('h1');
+            let thirdList = thirdTab.getElementsByTagName('li');
+            let thirdSubTitle = thirdTab.getElementsByTagName('h3');
+            let thirdContent = thirdTab.getElementsByTagName('p');
+
+            if (element.value === 'KOR') {
+                element.value = 'ENG'
+                diseaseInfo.innerText = '심혈관질환은 뇌와 심장에 혈액을 공급하는 혈관에 이상이 생긴 질환을 포함하며, 협심증, 심근경색(심장마비), 뇌경색(허혈성 뇌졸중) 등이 심혈관질환에 해당됩니다 . 심혈관 통증은 가슴 통증, 식은땀, 지속성 등으로 알 수 있습니다. 최근 몇 주간 통증이 지속된다면 반드시 병원을 방문해야 합니다.\n' +
+                        '콜레스테롤은 음식으로 30%, 간에서 70% 생성됩니다. 이는 LDL과 HDL로 나뉩니다. 나쁜 콜레스테롤 LDL은 혈관에 누적되어 염증 반응을 일으키고 동맥경화의 원인이 되는 반면, 좋은 콜레스테롤 HDL은 혈관 청소부라 불리며 혈관 속 나쁜 물질을 간으로 이동시켜줍니다. 따라서 LDL 콜레스테롤 수치가 높으면 심혈관 질환에 걸릴 확률이 높아집니다.\n' +
+                        '심혈관 질환의 또 다른 원인에는 흡연, 당뇨, 가족력 등이 있습니다. 이는 공통적으로 동맥 경화를 일으킬 가능성이 있는데, 동맥 경화가 50%~70% 진행되면 심근경색이 발생하기 쉽습니다. 이 동맥경화에 파열이 생기면 혈관으로 기름때가 쏟아져 나오고, 세포들과 엉겨 붙으며 혈전이 생기게 되는데, 이 때문에 혈관이 막히게 되는 것입니다.'
+                predictBtn.innerText = '심혈관 질환 발생 확률 예측';
+                allLabel[0].innerText = '협심증';
+                firstWhatIs[0].innerText = '협심증이란?';
+                firstContent[0].innerText = '협심증이란 심장을 감싸고 있는 관상동맥이 막히거나 좁아졌을 때 심장근육에 충분한 혈액 공급이 이루어지지 않아 생기는 가슴 주변의 통증을 말합니다.';
+                firstSubTitle[0].innerText = '증상';
+                firstContent[1].innerText = '협심증은 마치 가슴이 좁아진 듯 조이고 뻐근한 통증이 발생하기 때문에 붙여진 이름입니다. 협심증의 증상은 소화불량처럼 느껴질 수도 있으며 통증이 어깨나 팔, 등, 목, 턱에서 느껴질 수도 있습니다.';
+                firstSubTitle[1].innerText = '주요원인';
+                firstContent[2].innerText = '협심증은 가장 흔한 심장질환인 관상동맥질환의 주요증상이기도 합니다. 관상동맥질환은 심장에 혈액을 공급하는 관상동맥에 플라크라고 불리는 끈적끈적한 물질이 침착하여 심장으로의 혈액 공급이 감소하면서 발생합니다.';
+                firstSubTitle[2].innerText = '협심증이 의심된다면?';
+                firstContent[3].innerText = '흉부 불편감이 반드시 협심증과 관련 있는 것은 아니며, 위 - 식도 역류에 의한 가슴 쓰림, 폐의 감염 및 염증에 의해서도 흉부 통증을 느낄 수 있습니다. 그러나 협십증은 갑작스러운 심장 발작이나 급사의 징후일 가능성이 있습니다. 따라서 협심증이 의심되는 흉부 통증이나 불편감이 있다면 반드시 의사의 진찰을 받아야 합니다.';
+                allLabel[1].innerText = '급성심근경색';
+                secondWhatis[0].innerText = '급성심근경색이란?';
+                secondContent[0].innerText = '심장 근육에 혈액을 공급하는 관상 동맥이 여러 원인에 의해 갑자기 막히면서 심근에 괴사가 일어나는 질환입니다.';
+                secondSubTitle[0].innerText = '증상';
+                secondContent[1].innerText = '가장 흔한 증상은 흉통입니다.';
+                secondList[0].innerText = '앞가슴 중앙에 아주 심한 통증';
+                secondList[1].innerText = '목이나 턱, 어깨, 좌측 팔의 안쪽 등으로 퍼지는 통증 (방사통)';
+                secondList[2].innerText = '식은땀과 호흡곤란, 의식의 혼돈을 동반';
+                secondSubTitle[1].innerText = '주요원인';
+                secondContent[2].innerText = '급성심근경색증의 근본적인 원인은 동맥경화증입니다. 동맥경화증은 동맥 내막에 플라크가 쌓여, 혈관이 좁아지고 탄력을 잃는 질환입니다.';
+                allLabel[2].innerText = '뇌졸중';
+                thirdWhatIs[0].innerText = '뇌졸중이란?';
+                thirdContent[0].innerText = '뇌졸중은 뇌에 혈액을 공급하는 혈관이 막히거나 터져서 뇌에 손상이 오는 질환입니다.';
+                thirdSubTitle[0].innerText = '종류';
+                thirdContent[1].innerText = '가장 흔한 증상은 흉통입니다.';
+                thirdList[0].innerText = '허혈성 뇌졸중 : 뇌혈관이 막혀서 발생';
+                thirdList[1].innerText = '출혈성 뇌졸중 : 뇌로 가는 혈관이 터지면서 출혈 발생';
+                thirdList[2].innerText = '일과성 허혈 발작 : 잠깐 동안 혈류 공급이 중단되어 발생한다. 작은 뇌졸중이라고도 불림';
+                thirdSubTitle[1].innerText = '증상';
+                thirdContent[2].innerText = '뇌의 영역마다 혈액을 공급하는 혈관이 구분되어 있으며, 각자 담당하는 기능이 다릅니다. 따라서 어느 혈관이 문제를 일으켰는지, 손상된 뇌의 위치와 범위가 어떠한지에 따라 다양한 증상이 나타납니다. 대표적인 증상은 다음과 같습니다.';
+                thirdList[3].innerText = '반신불수'
+                thirdList[4].innerText = '발음장애'
+                thirdList[5].innerText = '복시'
+                thirdList[6].innerText = '감각이상 및 감각소실'
+                thirdList[7].innerText = '안면 신경마비'
+                thirdList[8].innerText = '연하곤란 (삼킴장애)'
+                thirdList[9].innerText = '두통 및 구토'
+                thirdList[10].innerText = '운동실조증'
+                thirdSubTitle[2].innerText = '뇌졸중 대처요령';
+                thirdContent[3].innerText = '뇌졸중을 판단하고 응급처치를 할 때 미국뇌졸중협회에서 권고하고 있는 FAST를 기억하세요.';
+                thirdList[11].innerText = 'F (Face) : 웃어보세요!'
+                thirdContent[4].innerText = '만약 얼굴의 한쪽이 일그러지거나 쳐진다면 뇌졸중을 의심해야 합니다.'
+                thirdList[12].innerText = 'A (Arms) : 두 팔을 머리 위로 들어보세요!'
+                thirdContent[5].innerText = '한쪽 팔을 떨어뜨린다면 뇌줄중일수도 있습니다.';
+                thirdList[13].innerText = 'S (Speech) : 말을 해보세요!'
+                thirdContent[6].innerText = '같은 말을 반복하는 것을 어려워하거나 말끝을 흐린다면 뇌졸중을 의심해볼 수 있습니다.';
+                thirdList[14].innerText = 'T (Time) : 시간은 생명!'
+                thirdContent[7].innerText = '위의 증상을 보이면 즉시 응급구조를 요청하고, 가능한 빨리 의료진의 도움을 받아야 합니다.';
+            } else if (element.value === 'ENG') {
+                element.value = 'KOR';
+                diseaseInfo.innerText = 'Cardiovascular disease includes disorders in the blood vessels that supply blood to the brain and heart, and cardiovascular diseases include angina, myocardial infarction (heart attack), and cerebral infarction (ischemic stroke). Cardiovascular pain can be indicated by chest pain, night sweats, and persistence. If the pain persists in the last few weeks, you must visit a doctor.\n' +
+                'Cholesterol is produced 30% by food and 70% by the liver. It is divided into LDL and HDL. Bad cholesterol LDL accumulates in the blood vessels, causing inflammatory reactions and causes hardening of the arteries, while good cholesterol HDL is called a vascular scavenger and moves bad substances in the blood vessels to the liver. So, high LDL cholesterol levels increase your chances of developing cardiovascular disease.\n' +
+                'Other causes of cardiovascular disease include smoking, diabetes, and a family history. This has the potential to cause arteriosclerosis in common, but when arteriosclerosis progresses 50% to 70%, myocardial infarction is more likely to occur. When the arteriosclerosis is ruptured, grease spills out into the blood vessels, clumps with cells, and blood clots are formed, which causes the blood vessels to become blocked.'
+                predictBtn.innerText = 'Predict Cardiovascular disease incidence';
+                allLabel[0].innerText = 'Angina';
+                firstWhatIs[0].innerText = 'What is angina?';
+                firstContent[0].innerText = 'Angina is pain around the chest caused by insufficient blood supply to the heart muscle when the coronary artery surrounding the heart is blocked or narrowed.';
+                firstSubTitle[0].innerText = 'Symptom';
+                firstContent[1].innerText = 'Angina pectoris is the name given because the chest tightens as if it was narrowed and it causes stiff pain. Symptoms of angina may feel like indigestion, and pain may be felt in the shoulder, arm, back, neck, or jaw.';
+                firstSubTitle[1].innerText = 'Main cause';
+                firstContent[2].innerText = 'Angina is also a major symptom of coronary artery disease, the most common heart disease. Coronary artery disease occurs when a sticky substance called plaque deposits in the coronary arteries that supply blood to the heart, reducing the blood supply to the heart.';
+                firstSubTitle[2].innerText = 'What if you suspect angina?';
+                firstContent[3].innerText = 'Chest discomfort is not necessarily associated with angina, and chest pain due to gastric-esophageal reflux, infection and inflammation in the lungs can also cause chest pain. However, angina can be a sign of a sudden heart attack or sudden death. Therefore, if you have chest pain or discomfort suspected of angina, you must see a doctor.';
+                allLabel[1].innerText = 'Acute myocardial infarction';
+                secondWhatis[0].innerText = 'What is acute myocardial infarction?';
+                secondContent[0].innerText = 'It is a disease in which necrosis of the myocardium occurs when the coronary arteries that supply blood to the heart muscle are suddenly blocked for a number of reasons.';
+                secondSubTitle[0].innerText = 'Symptom';
+                secondContent[1].innerText = 'The most common symptom is chest pain.';
+                secondList[0].innerText = 'Very severe pain in the center of the anterior chest';
+                secondList[1].innerText = 'Pain that spreads to the neck, jaw, shoulder, inside of the left arm, etc. (radiation pain)';
+                secondList[2].innerText = 'Cold sweat, shortness of breath, and confusion of consciousness';
+                secondSubTitle[1].innerText = 'Main cause';
+                secondContent[2].innerText = 'The underlying cause of acute myocardial infarction is arteriosclerosis. Atherosclerosis is a disease in which plaque accumulates on the lining of the arteries, resulting in narrowing of blood vessels and loss of elasticity.';
+                allLabel[2].innerText = 'stroke';
+                thirdWhatIs[0].innerText = 'What is a stroke?';
+                thirdContent[0].innerText = 'Stroke is a disorder in which the blood vessels that supply blood to the brain become blocked or burst, causing damage to the brain.';
+                thirdSubTitle[0].innerText = 'Kinds';
+                thirdContent[1].innerText = 'The most common symptom is chest pain.';
+                thirdList[0].innerText = 'Ischemic stroke: caused by blockage of blood vessels in the brain';
+                thirdList[1].innerText = 'Hemorrhagic stroke: Bleeding occurs when blood vessels to the brain burst';
+                thirdList[2].innerText = 'Transient ischemic attack: occurs due to a brief interruption in blood supply. Also called a small stroke'
+                thirdSubTitle[1].innerText = 'Symptom';
+                thirdContent[2].innerText = 'Blood vessels supplying blood are divided into different areas of the brain, and each has a different function. Therefore, various symptoms appear depending on which blood vessel is causing the problem and the location and extent of the damaged brain. Typical symptoms are:';
+                thirdList[3].innerText = 'hemiplegia'
+                thirdList[4].innerText = 'Pronunciation disorder'
+                thirdList[5].innerText = 'Double vision'
+                thirdList[6].innerText = 'Paresthesia and loss of sensation'
+                thirdList[7].innerText = 'Facial nerve palsy'
+                thirdList[8].innerText = 'Swallowing disorder'
+                thirdList[9].innerText = 'Headache and vomiting'
+                thirdList[10].innerText = 'Ataxia'
+                thirdSubTitle[2].innerText = 'Stroke Coping Tips';
+                thirdContent[3].innerText = 'When judging a stroke and giving first aid, remember the "FAST" recommended by the American Stroke Association.';
+                thirdList[11].innerText = 'F (Face) : Smile!'
+                thirdContent[4].innerText = 'If one side of your face is distorted or sagged, you should suspect a stroke.'
+                thirdList[12].innerText = 'A (Arms) : Raise your arms above your head!'
+                thirdContent[5].innerText = 'If you drop one arm, you may have a stroke.';
+                thirdList[13].innerText = 'S (Speech) : Tell!'
+                thirdContent[6].innerText = 'Difficulty repeating the same words over and over again, or if the words are blurred, you may suspect a stroke.';
+                thirdList[14].innerText = 'T (Time) : Time is life!'
+                thirdContent[7].innerText = 'If you have any of the above symptoms, call for emergency relief immediately and seek medical help as soon as possible.';
+            }
+        }
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+    <script src="./js/common.js"></script>
+</body>
+</html>
